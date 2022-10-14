@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonjour-Services</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Hind+Siliguri:wght@300&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navbar-height: 59px;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            top: 0px;
+            background-color: black;
+        }
+
+        #navbar::before {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #logo {
+            margin: 10px 34px;
+        }
+
+        #logo img {
+            height: 59px;
+            margin: 3px 6px;
+        }
+
+
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        #navbar ul li a {
+            color: rgb(255, 255, 255);
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        #navbar  li a:hover, #navbar li a.active {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        #service {
+            display: flex;
+            flex-direction: column;
+            padding: 3px 200px;
+            height: 550px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #service::before {
+            content: "";
+            position: absolute;
+            background: url('img/bg5.jpg') no-repeat center center/cover;
+            height: 642px;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: -1;
+            opacity: 1;
+        }
+
+
+        #service h1 {
+            color: white;
+            font-size: 4rem;
+            margin-top: 50px;
+            text-align: center;
+            text-shadow: 2px 2px 4px #000000
+        }
+
+        #service p {
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+            text-shadow: 2px 2px 4px #000000
+        }
+
+        .btn {
+            padding: 10px;
+            border: none;
+            background-color: #cc0303;
+            color: white;
+            font-size: 19px;
+            margin: 17px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .btn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .btn:hover span {
+            padding-right: 30px;
+        }
+        
+        .btn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        #delivery {
+            width: 100%;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0px 200px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #delivery img {
+            width: 400px;
+            height: 340px;
+            box-shadow: 1px 1px 8px #d4d4d4;
+            /* margin-top: 30px; */
+        }
+
+        .delivery-text {
+            width: 400px;
+        }
+
+        #delivery .delivery-text {
+            margin-left: 100px;
+        }
+
+        .delivery-text h1 {
+            font-size: 3rem;
+        }
+
+        .delivery-text p {
+            margin-top: 20px;
+            text-align: justify;
+        }
+
+        .order-form {
+            margin: 70px auto;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .order-form h1 {
+            margin-top: 300px;
+            font-size: 3rem;
+        }
+
+        .form-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 34px;
+        }
+
+        .order-form input {
+            margin-top: 20px;
+            width: 550px;
+            padding: 12px;
+        }
+
+        
+
+        .order-form .btn {
+            padding: 10px;
+            background-color: #cc0303;
+            color: white;
+            font-size: 19px;
+            margin-right: 460px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: 0.5s;
+        } 
+      .order-form .btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .order-form .btn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .order-form .btn:hover span {
+            padding-right: 30px;
+        }
+        
+        .order-form .btn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+        #last-footer {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: black;
+            width: 100%;
+            padding: 30px 100px;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 350px;
+        }
+
+        #last-footer .logo-box {
+            width: 200px;
+            height: 220px;
+
+        }
+
+        .logo-box h1 {
+            color: yellow;
+        }
+
+        .logo-box p {
+            margin-top: 10px;
+            line-height: 25px;
+            color: white;
+        }
+
+        span {
+            color: white;
+        }
+
+        .logo-footer img {
+            width: 200px;
+            height: 100px;
+        }
+
+        .logo-box input {
+            padding: 12px;
+            margin-top: 10px;
+            width: 200px;
+
+        }
+
+        .logo-box .btn {
+            background-color: #cc0303;
+            color: white;
+            padding: 10px;
+            font-size: 19px;
+            border-radius: 50px;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .logo-box .btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .logo-box  .btn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .logo-box .btn:hover span {
+            padding-right: 30px;
+        }
+        
+        .logo-box .btn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+
+        .logo-box .fa {
+            padding: 10px;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .fa-facebook {
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+        }
+        .fa-facebook:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+        .fa-twitter {
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+        .fa-twitter:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+        .fa-instagram {
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+        .fa-instagram:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+
+
+
+        /* For Responsive */
+        @media screen and (max-width: 1150px) {
+
+
+            #navbar {
+                flex-direction: column;
+            }
+
+            #navbar ul li a {
+                font-size: 1rem;
+                padding: 0px 7px;
+                padding-bottom: 8px;
+            }
+
+            #service {
+                height: 406px;
+                padding: 3px 28px;
+            }
+
+            #service::before {
+                height: 480px;
+            }
+
+            #service p {
+                font-size: 13px;
+            }
+
+            #service h1 {
+                font-size: 2.2rem;
+                margin-top: 0px;
+            }
+
+            #delivery {
+                flex-direction: column;
+                padding: 0px;
+            }
+
+            #delivery .delivery-text {
+                margin: auto;
+                display: block;
+            }
+
+            #delivery img {
+                width: 319px;
+                height: 200px;
+                margin-right: 0px auto;
+            }
+
+            #delivery h1 {
+                font-size: 2rem;
+                margin: 10px 40px;
+            }
+
+            .delivery-text p {
+                margin-left: 40px;
+                font-size: 15px;
+                width: 300px;
+            }
+
+            .order-form {
+                margin-top: 200px;
+            }
+
+            .order-form h1 {
+                margin: 10px 40px;
+                font-size: 1.5rem;
+            }
+
+            .order-form input {
+                width: 100%;
+            }
+
+            .order-form button {
+                margin: 10px 40px;
+            }
+
+            #last-footer {
+                margin-top: 200px;
+            }
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="img/chef logo.png" alt="MyOnlineMeal.com">
+        </div>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Servicepage.html"  class="active">Services</a></li>
+            <li><a href="Menupage.html">Menu</a></li>
+            <li><a href="Dailyoffers.html">Daily Offers</a></li>
+        </ul>
+    </nav>
+
+    <section id="service">
+        <h1>Fastest Services Available</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis illum impedit facere repellendus odit
+            molestias doloribus iste odio sapiente Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+            commodi corrupti porro vel accusantium.</p>
+        <button class="btn"> <span>Order Online</span></button>
+    </section>
+
+    <section id="delivery">
+        <div class="online-image">
+            <img src="img/deliveryimg1.avif" alt="img">
+        </div>
+        <div class="delivery-text">
+            <h1>Online Delivery</h1>
+            <p>Our online food ordering platforms have increased the convenience level of the customers as well as
+                boosted the restaurants sales by creating their strong online presence in the market. Not just the
+                business owner is profiteering, online food ordering is also aiding restaurants and customers and
+                everyone else involved in between. While Seamless, Uber Eats, Delivery, Deliveroo, Grubhub, and Delivery
+                Hero are the top players, local food ordering and delivery startups are also making a name in different
+                countries. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo beatae, eligendi iste
+                reiciendis error odio similique illum quae architecto? Quidem. the best food delivery website.</p>
+        </div>
+    </section>
+
+    <section class="order-form">
+        <h1>Online Order Here</h1>
+        <div class="form-box">
+            <input type="text" placeholder="Your Name">
+            <input type="add" placeholder="Address">
+            <input type="tel" placeholder="Mobile No.">
+            <input type="text" placeholder="Your Meal">
+            <input type="number" placeholder="Qty">
+            <button class="btn" onclick="myFunction()"> <span>Order Now</span></button>
+        </div>
+    </section>
+
+    <!-- footer section -->
+    <footer id="last-footer">
+        <div class="logo-box">
+            <h1> Restaurant</h1>
+            <p> <b>&gt;</b> &nbsp; &nbsp; About Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Contact Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Reservation</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Privacy Policy</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Terms & Conditions</p>
+        </div>
+        <div class="logo-box">
+            <h1>Contact Us</h1>
+            <a href="#" class="fa fa-facebook"></a> &nbsp; <span>Bonjour Restaurant</span> <br>
+            <a href="#" class="fa fa-twitter"></a> &nbsp; <span>Bonjour_Resto</span> <br>
+            <a href="#" class="fa fa-instagram"></a> &nbsp; <span>Bonjour_123</span>
+        </div>
+        <div class="logo-box">
+            <h1>Opening</h1>
+            <p>Monday-Saturday</p>
+            <p>9:00AM - 10:00PM</p> <br>
+            <p>Sunday</p>
+            <p>10:00AM - 9:00PM</p>
+        </div>
+        <div class="logo-box">
+            <h1>Newsletter</h1>
+            <p>Customer can send their reviews by e-mail</p> <br>
+            <input type="email" placeholder="Your e-mail">
+            <button class="btn" > <span> SIGN UP</span></button>
+        </div>
+    </footer>
+
+    <script>
+        function myFunction(){
+            alert("OK! If you are sure");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonjour-Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --navbar-height: 59px;
+    }
+
+    #navbar {
+        display: flex;
+        align-items: center;
+        top: 0px;
+        background-color: black;
+    }
+
+    #navbar::before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
+    #logo {
+        margin: 10px 34px;
+    }
+
+    #logo img {
+        height: 59px;
+        margin: 3px 6px;
+    }
+
+    #navbar ul {
+        display: flex;
+    }
+
+    #navbar ul li {
+        list-style: none;
+        font-size: 1.3rem;
+    }
+
+    #navbar ul li a {
+        color: rgb(255, 255, 255);
+        display: block;
+        padding: 3px 22px;
+        border-radius: 20px;
+        text-decoration: none;
+    }
+
+    #navbar li a:hover, #navbar li a.active {
+        color: black;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        margin: 50px auto;
+        justify-content: center;
+
+    }
+
+    .bloc-2 {
+        margin-top: -1200px;
+        width: 300px;
+        height: 600px;
+        background-color: #cc0303;
+        position: sticky;
+        top: 0px;
+        /* margin-left: 150px; */
+        box-shadow: 5px 5px 5px #d4d4d4;
+    }
+
+    .bloc-2 h1 {
+        color: #ffffff;
+        margin-top: 10px;
+        margin-left: 25px;
+    }
+
+    .bloc-2 p {
+        color: #ffffff;
+        margin-top: 60px;
+        margin-left: 28px;
+        line-height: 30px;
+        color: yellow;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 5px;
+    }
+   
+    .bloc-3 {
+        width: 700px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .bloc-3 .product {
+        width: 300px;
+        height: 400px;
+        background-color: rgb(248, 248, 248);
+        margin-bottom: 50px;
+        margin-left: 50px;
+        box-shadow: 1px 1px 8px #d4d4d4;
+        border: 1px solid white;
+        transition: 0.5s;
+    }
+    .bloc-3 .product:hover{
+        transform: translateY(-20px);
+        box-shadow: 5px 5px 15px #d4d4d4;;
+    }
+
+    #product1 img {
+        width: 300px;
+        height: 250px;
+    }
+    
+
+    #product1 h1 {
+        color: #cc0303;
+        margin-left: 70px;
+        margin-top: 10px;
+    }
+
+    #product1 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product1 .btn {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 19px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .btn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .btn:hover span {
+            padding-right: 30px;
+        }
+        
+        .btn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+    #product2 h1 {
+        color: #cc0303;
+        margin-left: 70px;
+        margin-top: 10px;
+    }
+
+    #product2 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product2 button {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 19px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #product3 h1 {
+        color: #cc0303;
+        margin-left: 70px;
+        margin-top: 10px;
+    }
+
+    #product3 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product3 button {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 19px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+
+    #product4 h1 {
+        color: #cc0303;
+        margin-left: 70px;
+        margin-top: 10px;
+    }
+
+    #product4 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product4 button {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 19px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+
+    #product5 h1 {
+        color: #cc0303;
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+
+    #product5 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product5 button {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 19px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+    }
+        
+
+    #product6 h1 {
+        color: #cc0303;
+        margin-left: 70px;
+        margin-top: 10px;
+    }
+
+    #product6 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product6 button {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 19px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+    }
+      
+
+    #product7 h1 {
+        color: #cc0303;
+        margin-left: 85px;
+        margin-top: 10px;
+    }
+
+    #product7 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product7 button {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        border: none;
+        margin-top: 10px;
+        font-size: 19px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    #product8 h1 {
+        color: #cc0303;
+        margin-left: 80px;
+        margin-top: 10px;
+    }
+
+    #product8 p {
+        color: #cc0303;
+        margin-left: 110px;
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #product8 button {
+        background-color: #cc0303;
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 19px;
+        border: none;
+        margin-top: 10px;
+        margin-left: 90px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+
+    #product2 img {
+        width: 300px;
+        height: 250px;
+    }
+
+    #product3 img {
+        width: 300px;
+        height: 250px;
+    }
+
+    #product4 img {
+        width: 300px;
+        height: 250px;
+    }
+
+    #product5 img {
+        width: 300px;
+        height: 250px;
+    }
+
+    #product6 img {
+        width: 300px;
+        height: 250px;
+    }
+
+    #product7 img {
+        width: 300px;
+        height: 250px;
+    }
+
+    #product8 img {
+        width: 300px;
+        height: 250px;
+    }
+
+    #last-footer {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: black;
+        width: 100%;
+        padding: 30px 100px;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+
+    #last-footer .logo-box {
+        width: 200px;
+        height: 220px;
+
+    }
+
+    .logo-box h1 {
+        color: yellow;
+    }
+
+    .logo-box p {
+        margin-top: 10px;
+        line-height: 25px;
+        color: white;
+    }
+
+    span {
+        color: white;
+    }
+
+    .logo-footer img {
+        width: 200px;
+        height: 100px;
+    }
+
+    .logo-box input {
+        padding: 12px;
+        margin-top: 10px;
+        width: 200px;
+
+    }
+
+    .logo-box button {
+        background-color: #cc0303;
+        color: white;
+        padding: 10px;
+        font-size: 19px;
+        border-radius: 50px;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .logo-box .fa {
+        padding: 10px;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+
+    .fa-facebook {
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+    .fa-facebook:hover{
+        background-color: rgb(241, 241, 52);
+    }
+
+    .fa-twitter {
+        background: #ffffff;
+        color: rgb(0, 0, 0);
+    }
+    .fa-twitter:hover{
+        background-color: rgb(241, 241, 52);
+    }
+
+    .fa-instagram {
+        background: #ffffff;
+        color: rgb(0, 0, 0);
+    }
+    .fa-instagram:hover{
+        background-color: rgb(241, 241, 52);
+    }
+
+
+
+    /* For Responsive */
+    @media screen and (max-width: 1150px) {
+        #navbar {
+            flex-direction: column;
+        }
+
+        #navbar ul li a {
+            font-size: 1rem;
+            /* padding: 12px 20px; */
+            padding-bottom: 17px;
+            padding-top: 10px;
+        }
+
+
+        .bloc-2 {
+            display: none;
+        }
+
+    }
+
+    @media screen and (max-width: 720px) {
+        .bloc-2 {
+            display: none;
+        }
+
+        .bloc-3 {
+            justify-content: center;
+        }
+    }
+</style>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="img/chef logo.png" alt="MyOnlineMeal.com">
+        </div>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Servicepage.html">Services</a></li>
+            <li><a href="Menupage.html"  class="active">Menu</a></li>
+            <li><a href="Dailyoffers.html">Daily Offers</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="bloc-2">
+            <h1>BONJOUR MENU</h1>
+            <p>BURGER <br><br>PIZZA <br><br>SALAD <br><br>FRENCH FRIES <br><br>TOASTS <br><br>CAKES <br><br>MOMOS
+                <br><br>SPRING ROLL
+            </p>
+        </div>
+        <div class="bloc-3">
+            <div class="product" id="product1">
+                <img src="img/burgermenu.jpg" alt="img">
+                <h1>Veg Burger</h1>
+                <p>&#8377 99</p>
+                <button class="btn"> <span>ORDER ONLINE</span> </button>
+            </div>
+            <div class="product" id="product2">
+                <img src="img/pizzamenu1.jpg" alt="img">
+                <h1>Veg Pizza</h1>
+                <p>&#8377 199</p>
+                <button class="btn"> <span>ORDER ONLINE</span> </button>
+            </div>
+            <div class="product" id="product3">
+                <img src="img/momo.jpg" alt="img">
+                <h1>Steam Momo</h1>
+                <p>&#8377 99</p>
+                <button class="btn"> <span>ORDER ONLINE</span> </button>
+            </div>
+            <div class="product" id="product4">
+                <img src="img/frenchfries.jpg" alt="img">
+                <h1>French Fries</h1>
+                <p>&#8377 69</p>
+                <button class="btn"> <span>ORDER ONLINE</span> </button>
+            </div>
+            <div class="product" id="product5">
+                <img src="img/chickenburger.jpg" alt="img">
+                <h1>Chicken Burger</h1>
+                <p>&#8377 249</p>
+                <button class="btn"> <span> ORDER ONLINE</span></button>
+            </div>
+            <div class="product" id="product6">
+                <img src="img/toast.jpg" alt="img">
+                <h1>Butter Toast</h1>
+                <p>&#8377 70</p>
+                <button class="btn"> <span>ORDER ONLINE</span> </button>
+            </div>
+            <div class="product" id="product7">
+                <img src="img/cake.jpg" alt="img">
+                <h1>Soft Cake</h1>
+                <p>&#8377 350</p>
+                <button class="btn"> <span> ORDER ONLINE</span></button>
+            </div>
+            <div class="product" id="product8">
+                <img src="img/springroll.jpg" alt="">
+                <h1>Spring Roll</h1>
+                <p>&#8377 99</p>
+                <button class="btn"> <span>ORDER ONLINE</span> </button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="last-footer">
+        <div class="logo-box">
+            <h1> Restaurant</h1>
+            <p> <b>&gt;</b> &nbsp; &nbsp; About Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Contact Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Reservation</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Privacy Policy</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Terms & Conditions</p>
+        </div>
+        <div class="logo-box">
+            <h1>Contact Us</h1>
+            <a href="#" class="fa fa-facebook"></a> &nbsp; <span>Bonjour Restaurant</span> <br>
+            <a href="#" class="fa fa-twitter"></a> &nbsp; <span>Bonjour_Resto</span> <br>
+            <a href="#" class="fa fa-instagram"></a> &nbsp; <span>Bonjour_123</span>
+        </div>
+        <div class="logo-box">
+            <h1>Opening</h1>
+            <p>Monday-Saturday</p>
+            <p>9:00AM - 10:00PM</p> <br>
+            <p>Sunday</p>
+            <p>10:00AM - 9:00PM</p>
+        </div>
+        <div class="logo-box">
+            <h1>Newsletter</h1>
+            <p>Customer can send their reviews by e-mail</p> <br>
+            <input type="email" placeholder="Your e-mail">
+            <button class="btn"> <span> SIGN UP</span></button>
+        </div>
+    </footer>
+    
+
+</body>
+
+</html>

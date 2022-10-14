@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonjour-Dailyoffers</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Hind+Siliguri:wght@300&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navbar-height: 59px;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            top: 0px;
+            background-color: black;
+        }
+
+
+
+        #navbar::before {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #logo {
+            margin: 10px 34px;
+        }
+
+        #logo img {
+            height: 59px;
+            margin: 3px 6px;
+        }
+
+
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        #navbar ul li a {
+            color: white;
+            display: block;
+            padding: 3px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        #navbar  li a:hover, #navbar li a.active {
+            color: black;
+            background-color: white;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            padding: 3px 200px;
+            height: 550px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            background: url('img/bg3.png') no-repeat center center/cover;
+            height: 642px;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.89;
+        }
+
+        #home .h-primary {
+            color: white;
+            text-align: center;
+            font-size: 4rem;
+
+        }
+
+        #home p {
+            margin-top: 10px;
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        #home .btn {
+            background-color: #cc0303;
+            border: none;
+            border-radius: 50px;
+            font-size: 19px;
+            padding: 10px;
+            color: white;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .btn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .btn:hover span {
+            padding-right: 30px;
+        }
+        
+        .btn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+        .content {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(255, 255, 255);
+            justify-content: center;
+            /* justify-content: space-around; */
+
+            padding: 0px 100px;
+            margin: 50px auto;
+
+        }
+
+        .content .product {
+            width: 300px;
+            height: 370px;
+            background-color: rgb(248, 248, 248);
+            margin-bottom: 50px;
+            margin-left: 50px;
+            text-align: center;
+            box-shadow: 1px 1px 8px #d4d4d4;
+            transition: 0.5s;
+    }
+    .content .product:hover{
+        transform: translateY(-20px);
+        box-shadow: 5px 5px 15px #d4d4d4;;
+    }
+
+        #offer1 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer1 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer2 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer2 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer3 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer3 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer4 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer4 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer5 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer5 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer6 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer6 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer7 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer7 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer8 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer8 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        #offer9 img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #offer9 h1 {
+            top: 210px;
+            color: #b90202;
+        }
+
+        .last-footer {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: black;
+            width: 100%;
+            padding: 30px 100px;
+            /* align-items: center; */
+            justify-content: space-around;
+            margin-top: -30px;
+        }
+
+        .last-footer .logo-box {
+            width: 200px;
+            height: 220px;
+
+        }
+
+        .logo-box h1 {
+            color: yellow;
+        }
+
+        .logo-box p {
+            margin-top: 10px;
+            line-height: 25px;
+            color: white;
+        }
+
+        span {
+            color: white;
+        }
+
+        .logo-footer img {
+            width: 200px;
+            height: 100px;
+        }
+
+        .logo-box input {
+            padding: 12px;
+            margin-top: 10px;
+            width: 200px;
+
+        }
+
+         .btn {
+            background-color: #cc0303;
+            color: white;
+            padding: 10px;
+            font-size: 19px;
+            border-radius: 50px;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .logo-box .fa {
+            padding: 10px;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .fa-facebook {
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+        }
+        .fa-facebook:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+        .fa-twitter {
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+        .fa-twitter:hover{
+            background-color: rgb(241, 241, 52);
+        }
+        .fa-instagram {
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+        .fa-instagram:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+
+
+
+        /* For Responsive */
+        @media screen and (max-width: 1150px) {
+            #navbar {
+                flex-direction: column;
+            }
+
+            #navbar ul li a {
+                font-size: 1rem;
+                padding: 0px 10px;
+                padding-bottom: 8px;
+            }
+
+
+            #home {
+                height: 370px;
+                padding: 3px 28px;
+            }
+
+            #home::before {
+                height: 480px;
+            }
+
+            #home p {
+                font-size: 13px;
+            }
+
+            .content {
+                justify-content: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NavigationBar -->
+    <nav id="navbar">
+        <div id="logo">
+            <img src="img/chef logo.png" alt="MyOnlineMeal.com">
+        </div>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Servicepage.html">Services</a></li>
+            <li><a href="Menupage.html">Menu</a></li>
+            <li><a href="Dailyoffers.html"  class="active">Daily Offers</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="h-primary">Deals & Offers</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis dolorum numquam minus. </p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+        <button class="btn"> <span> Order Online</span></button>
+    </section>
+
+    <div class="content">
+        <div class="product" id="offer1">
+            <img src="img/burger1.jpg" alt="img">
+            <h1>Double Burger</h1>
+            <h2><del>&#8377 249 </del> </h2>
+            <h1>&#8377 199</h1>
+        </div>
+        <div class="product" id="offer2">
+            <img src="img/pizza.jpg" alt="img">
+            <h1>Veg Pizza</h1>
+            <h2><del>&#8377 299</del></h2>
+            <h1>&#8377 249</h1>
+        </div>
+        <div class="product" id="offer3">
+            <img src="img/momo.jpg " alt="img">
+            <h1>Steam Momos</h1>
+            <h2><del>&#8377 99</del></h2>
+            <h1>&#8377 69</h1>
+        </div>
+        <div class="product" id="offer4">
+            <img src="img/frenchfries.jpg" alt="img">
+            <h1>Crunchy FrenchFries</h1>
+            <h2><del>&#8377 249</del></h2>
+            <h1>&#8377 199</h1>
+        </div>
+        <div class="product" id="offer5">
+            <img src="img/chickenburger.jpg" alt="img">
+            <h1>Chicken Burger</h1>
+            <h2><del>&#8377 230</del></h2>
+            <h1>&#8377 199</h1>
+        </div>
+        <div class="product" id="offer6">
+            <img src="img/friedchicken.jpg" alt="img">
+            <h1>Roasted Checken</h1>
+            <h2><del>&#8377 249</del></h2>
+            <h1>&#8377 199</h1>
+        </div>
+        <div class="product" id="offer7">
+            <img src="img/tandoori.jpg" alt="img">
+            <h1>Tandoori Chicken</h1>
+            <h2><del>&#8377 299</del></h2>
+            <h1>&#8377 249</h1>
+        </div>
+        <div class="product" id="offer8">
+            <img src="img/cheesepizza.jpg" alt="img">
+            <h1>Cheese Pizza</h1>
+            <h2><del>&#8377 249</del></h2>
+            <h1>&#8377 210</h1>
+        </div>
+        <div class="product" id="offer9">
+            <img src="img/cake.jpg" alt="img">
+            <h1>Delicious Cake</h1>
+            <h2><del>&#8377 399</del></h2>
+            <h1>&#8377 299</h1>
+        </div>
+    </div>
+
+    <footer class="last-footer">
+        <div class="logo-box">
+            <h1> Restaurant</h1>
+            <p> <b>&gt;</b> &nbsp; &nbsp; About Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Contact Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Reservation</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Privacy Policy</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Terms & Conditions</p>
+        </div>
+        <div class="logo-box">
+            <h1>Contact Us</h1>
+            <a href="#" class="fa fa-facebook"></a> &nbsp; <span>Bonjour Restaurant</span> <br>
+            <a href="#" class="fa fa-twitter"></a> &nbsp; <span>Bonjour_Resto</span> <br>
+            <a href="#" class="fa fa-instagram"></a> &nbsp; <span>Bonjour_123</span>
+        </div>
+        <div class="logo-box">
+            <h1>Opening</h1>
+            <p>Monday-Saturday</p>
+            <p>9:00AM - 10:00PM</p> <br>
+            <p>Sunday</p>
+            <p>10:00AM - 9:00PM</p>
+        </div>
+        <div class="logo-box">
+            <h1>Newsletter</h1>
+            <p>Customer can send their reviews by e-mail</p> <br>
+            <input type="email" placeholder="Your e-mail">
+            <button class="btn"> <span> SIGN UP</span></button>
+        </div>
+    </footer>
+
+</body>
+
+</html>

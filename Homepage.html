@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonjour-Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Hind+Siliguri:wght@300&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navbar-height: 59px;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            top: 0px;
+            background-color: black;
+            
+        }
+
+
+
+        #navbar::before {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        #logo {
+            margin: 10px 34px;
+        }
+
+        #logo img {
+            height: 59px;
+            margin: 3px 6px;
+        }
+
+
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        #navbar ul li a {
+            color: white;
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        #navbar li a:hover, #navbar  li a.active {
+            color: black;
+            background-color: white;
+        }
+
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            padding: 3px 200px;
+            height: 550px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            background: url('img/bg4.png') no-repeat center center/cover;
+            height: 642px;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.89;
+        }
+
+        #home h1 {
+            color: white;
+            text-align: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #home p {
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #services {
+            width: 100%;
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px 20px;
+        }
+
+        #services .box {
+            border: 2px solid rgb(175, 158, 158);
+            padding: 25px;
+            width: 302px;
+            margin: 0px 14px;
+            background: #f2f2f2;
+            height: 500px;
+            box-shadow: 1px 1px 8px #d4d4d4;
+            transition: 0.5s;
+    }
+    #services .box:hover{
+        transform: translateY(-20px);
+        box-shadow: 5px 5px 15px #d4d4d4;;
+    }
+
+
+        #services .box img {
+            width: 150px;
+            /* height: 100px; */
+            margin: auto;
+            display: block;
+        }
+
+        #services p {
+            text-align: justify;
+            font-size: .9rem;
+
+        }
+
+        #client-section {
+            position: relative;
+        }
+
+        #client-section::before {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        #clients {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .client-item {
+            padding: 34px;
+        }
+
+        #clients img {
+            height: 124px;
+        }
+
+
+
+        #contact {
+            position: relative;
+        }
+
+        #contact::before {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+
+        #contact-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 34px;
+        }
+
+        #contact-box input,
+        #contact-box textarea {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        #contact-box form {
+            width: 40%;
+        }
+        
+
+        #contact-box label {
+            font-size: 1.3rem;
+        }
+
+       
+        
+        
+        .h-primary {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 3.8rem;
+            padding: 12px;
+        }
+        
+        .h-secondary {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 2.3rem;
+            padding: 12px;
+        }
+
+        .btn {
+            padding: 10px;
+            font-size: 19px;
+            border: none;
+            background-color: #cc0303;
+            color: white;
+            margin: 17px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        
+        .btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .btn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .btn:hover span {
+            padding-right: 30px;
+        }
+        
+        .btn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        
+        
+        
+        .center {
+            text-align: center;
+        }
+
+        .map{
+            margin-bottom: 30px;
+        }
+        
+        #last-footer {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: black;
+            width: 100%;
+            padding: 30px 100px;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        footer {
+            background: black;
+            color: white;
+            padding: 9px 20px;
+        }
+        #last-footer .logo-box {
+            width: 200px;
+            height: 220px;
+
+        }
+
+        .logo-box h1 {
+            color: yellow;
+        }
+
+        .logo-box p {
+            margin-top: 10px;
+            line-height: 25px;
+        }
+
+        .logo-footer img {
+            width: 200px;
+            height: 100px;
+        }
+
+        .logo-box input {
+            padding: 12px;
+            margin-top: 10px;
+            width: 200px;
+
+        }
+
+        .logo-box button {
+            background-color: #cc0303;
+            color: white;
+            padding: 10px;
+            border-radius: 50px;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .logo-box .fa {
+            padding: 10px;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .fa-facebook {
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+        }
+        .fa-facebook:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+        .fa-twitter {
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+        .fa-twitter:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+        .fa-instagram {
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+        .fa-instagram:hover{
+            background-color: rgb(241, 241, 52);
+        }
+
+
+
+
+        /* Responsive Media query */
+
+        @media screen and (max-width: 1150px) {
+
+
+            #navbar {
+                flex-direction: column;
+            }
+
+            #navbar ul li a {
+                font-size: 1rem;
+                padding: 0px 10px;
+                padding-bottom: 8px;
+            }
+
+            #home {
+                height: 370px;
+                padding: 3px 28px;
+            }
+
+            #home::before {
+                height: 480px;
+            }
+
+            #home p {
+                font-size: 13px;
+            }
+
+
+
+            #services .box {
+                padding: 14px;
+                margin: 2px 55px;
+                margin-bottom: 20px;
+            }
+
+            #services .box img {
+                height: 141px;
+                margin: auto;
+                display: block;
+            }
+
+
+            #clients {
+                flex-wrap: wrap;
+            }
+
+            #clients img {
+                width: 66px;
+                padding: 6px;
+                height: auto;
+            }
+
+
+            #contact-box form {
+                width: 80%;
+            }
+
+            .h-primary {
+                font-size: 26px;
+            }
+
+            .btn {
+                font-size: 13px;
+                padding: 4px 8px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NavigationBar -->
+    <nav id="navbar">
+        <div id="logo">
+            <img src="img/chef logo.png" alt="MyOnlineMeal.com">
+        </div>
+        <ul>
+            <li><a href="Homepage.html"  class="active">Home</a></li>
+            <li><a href="Servicepage.html">Services</a></li>
+            <li><a href="Menupage.html">Menu</a></li>
+            <li><a href="Dailyoffers.html">Daily Offers</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner Image -->
+    <section id="home">
+        <h1 class="h-primary">Welcome to MyOnlineMeal</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis dolorum numquam minus. </p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+        <button class="btn"> <span>Order Online</span> </button>
+    </section>
+
+    <!-- # Boxes Of Services And OurServices Section -->
+    <section id="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+            <div class="box">
+                <img src="img/doubleburger.webp" alt="img">
+                <h2 class="h-secondary center">Food Catering</h2>
+                <p class="center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, culpa suscipit error
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et qui, repudiandae similique nam,
+                    recusandae quidem ab asperiores ex, aut fugit labore veritatis facere?
+                    sint delectus ab dolorum nam. Debitis facere, incidunt voluptates eos, mollitia voluptatem iste sunt
+                    voluptas beatae facilis labore, omnis sint quae eum.</p>
+            </div>
+            <div class="box">
+                <img src="img/newpizza.png" alt="img">
+                <h2 class="h-secondary center">Bulk Ordering</h2>
+                <p class="center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, culpa suscipit error
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde laudantium a incidunt animi ad, ab
+                    dignissimos vero? Unde numquam odit repudiandae perferendis nisi.
+
+                    sint delectus ab dolorum nam. Debitis facere, incidunt voluptates eos, mollitia voluptatem iste sunt
+                </p>
+            </div>
+            <div class="box">
+                <img src="img/springroll.jpg" alt="img">
+                <h2 class="h-secondary center">Food Ordering</h2>
+                <p class="center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, culpa suscipit error
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus provident fugiat aliquam
+                    minima at explicabo. Earum eveniet quaerat, sunt molestias nesciunt quas! Quis.
+                    sint delectus ab dolorum nam. Debitis facere, incidunt voluptates eos, mollitia voluptatem iste sunt
+                    voluptas beatae facilis labore, omnis sint quae eum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 Icons Of REstaurant -->
+    <section id="client-section">
+        <div id="clients">
+            <div class="client-item">
+                <img src="img/foodbox.jpg" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="img/chef.jpg" alt="Our Client">
+            </div>
+
+            <div class="client-item">
+                <img src="img/packing.png" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="img/chef.png" alt="Our Client">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section and Form  -->
+    <section id="contact">
+        <h1 class="h-primary center">Contact Us</h1>
+        <div id="contact-box">
+            <form action="">
+                <div class="form-group">
+                    <br>
+                    <input type="text" name="name" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <br>
+                    <input type="email" name="name" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <br>
+                    <input type="phone" name="name" id="phone" placeholder="Enter your phone">
+                </div>
+                <div class="form-group">
+                    <br>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Message section"></textarea>
+                </div>
+                <button class="btn" onclick="myFunction()"> <span>Submit</span> </button>
+            </form>
+        </div>
+    </section>
+
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28009.854587603702!2d77.28903839255526!3d28.65277658463204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb391e594f2b%3A0xbb138f2e3928608e!2sAnand%20Vihar%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1664204371288!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="last-footer">
+        <div class="logo-box">
+            <h1> Restaurant</h1>
+            <p> <b>&gt;</b> &nbsp; &nbsp; About Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Contact Us</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Reservation</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Privacy Policy</p>
+            <p> <b>&gt;</b> &nbsp; &nbsp; Terms & Conditions</p>
+        </div>
+        <div class="logo-box">
+            <h1>Contact Us</h1>
+            <a href="#" class="fa fa-facebook"></a> &nbsp; <span>Bonjour Restaurant</span> <br>
+            <a href="#" class="fa fa-twitter"></a> &nbsp; <span>Bonjour_Resto</span> <br>
+            <a href="#" class="fa fa-instagram"></a> &nbsp; <span>Bonjour_123</span>
+        </div>
+        <div class="logo-box">
+            <h1>Opening</h1>
+            <p>Monday-Saturday</p>
+            <p>9:00AM - 10:00PM</p> <br>
+            <p>Sunday</p>
+            <p>10:00AM - 9:00PM</p>
+        </div>
+        <div class="logo-box">
+            <h1>Newsletter</h1>
+            <p>Customer can send their reviews by e-mail</p> <br>
+            <input type="email" placeholder="Your e-mail">
+            <button class="btn"> <span> SIGN UP</span></button>
+        </div>
+    </footer>
+
+<script>
+
+    function myFunction(){
+        alert("OK! If you are sure.");
+    }
+</script>
+
+</body>
+
+</html>
